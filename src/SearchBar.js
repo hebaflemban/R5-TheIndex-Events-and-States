@@ -8,6 +8,8 @@ const SearchBar = (props) => {
   const handleChange = event => {
     setQuery(event.target.value)
     props.filterAuthors(event.target.value)
+    console.log("handleChange")
+    
   }
     return (
       <div className="form-group col-lg-6 col-12 mx-auto">

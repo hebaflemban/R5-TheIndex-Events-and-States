@@ -20,9 +20,11 @@ function App() {
   const refresh = () => {setCurrentAuthor(null)}
 
   const filterAuthors = query => { 
-    let newAuthors = filteredAuthors.filter(author => 
+    let newAuthors = authors.filter(author => 
       `${author.first_name} ${author.last_name}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
     setFilteredAuthors(newAuthors)
+    console.log("filterAuthors")
+    console.log(filteredAuthors)
    }
 
   return (
@@ -37,7 +39,7 @@ function App() {
             currentAuthor ? (
               <AuthorDetail author={currentAuthor} books = {currentAuthor.books}/> 
             ) : (
-              <AuthorList authors={authors} selectAuthor={selectAuthor} filterAuthors={filterAuthors} onClick={ () => selectAuthor() }/>
+              <AuthorList authors={filteredAuthors} selectAuthor={selectAuthor} filterAuthors={filterAuthors} onClick={ () => selectAuthor() }/>
             )
           }
 
